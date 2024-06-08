@@ -1,0 +1,28 @@
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 80vh;
+}
+
+.slider_content {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translate(-40%, -20%);
+  width: 400px;
+}
+.slider_paragraph {
+  font-weight: 200;
+}
+.slider_btn {
+  padding: 12px 32px;
+}
+
+@media (max-width: 576px) {
+  img {
+    max-height: 250px;
+  }
+  .slider_content {
+    display: none;
+  }
+}

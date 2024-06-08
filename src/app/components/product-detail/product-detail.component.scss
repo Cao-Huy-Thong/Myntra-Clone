@@ -1,0 +1,22 @@
+span {
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ultilities {
+  border-top: 1px solid #ccc;
+  h4::selection,
+  p::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  i {
+    font-size: 24px;
+    width: 30px;
+  }
+  p {
+    color: #777;
+  }
+}

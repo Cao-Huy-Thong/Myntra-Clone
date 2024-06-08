@@ -1,0 +1,67 @@
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="line-spin-clockwise-fade"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+<div class="container py-5">
+  <h3 class="text-center mb-3">Admin Page</h3>
+  <div class="clear-fix">
+    <div class="float-right">
+      <input
+        type="text"
+        class="form-control mb-3"
+        placeholder="Search here"
+        #search
+        (keyup)="onSearchItem(search.value)"
+      />
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Price</th>
+        <th scope="col">In Stock</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let product of filterProducts
+            | paginate
+              : {
+                  itemsPerPage: 10,
+                  currentPage: page
+                };
+          let i = index
+        "
+      >
+        <td><img [src]="product.images" alt="" /></td>
+        <td>{{ product.title }}</td>
+        <td>{{ product.ideal_for }}</td>
+        <td>{{ getPrice(product.variant_price | currency: "USD") }}</td>
+        <td>{{ product.is_in_stock }}</td>
+
+        <td>
+          <i class="fas fa-trash text-danger" (click)="onDelete(product)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls
+    (pageChange)="page = $event"
+    class="my-pagination"
+    (click)="backToTop()"
+  ></pagination-controls>
+  <div class="admin__mobile">
+    <h4>Please switch to larger screen to see more detail</h4>
+  </div>
+</div>

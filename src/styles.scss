@@ -1,0 +1,47 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+:root {
+  --primary-color: #343a40;
+  --secondary-color: #0c2b4b;
+  --white-color: #ffffff;
+  --heading-color: #111111;
+  --para-color: #5c5c5c;
+  --black-color: #000000;
+  --heading-color-2: #323232;
+  --normal-color: #1c1c1c;
+  --background: #f5f5f5;
+  --background-2: #f2f2f2;
+  --border: #ebebeb;
+  --border-1: #e1e1e1;
+  --fm-unna: "Unna", serif;
+  --fm-nunito: "Nunito Sans", sans-serif;
+}
+
+.owl-next,
+.owl-prev {
+  background: rgba(255, 255, 255, 0.781);
+  color: #222;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  i {
+    font-size: 24px;
+  }
+}
+.owl-next {
+  right: 10px;
+}
+.owl-prev {
+  left: 10px;
+}
+.ngx-pagination {
+  padding-left: 0;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .owl-next i,
+  .owl-prev i {
+    display: none;
+  }
+}

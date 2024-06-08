@@ -1,0 +1,30 @@
+<div class="container py-5">
+  <div class="row justify-content-center mb-4">
+    <ul class="filter__controls">
+      <li
+        (click)="changeViewMode('newArrival')"
+        class="active"
+        [class.active]="viewMode == 'newArrival'"
+      >
+        New Arrivals
+      </li>
+      <li
+        (click)="changeViewMode('topSeller')"
+        [class.active]="viewMode == 'topSeller'"
+      >
+        Hot Sales
+      </li>
+    </ul>
+  </div>
+  <div class="product__filter">
+    <app-product-new-arrival
+      *ngIf="viewMode === 'newArrival'"
+      [productsNewArrival]="productsNewArrival"
+    ></app-product-new-arrival>
+
+    <app-product-top-sale
+      *ngIf="viewMode === 'topSeller'"
+      [productsTopSale]="productsTopSale"
+    ></app-product-top-sale>
+  </div>
+</div>

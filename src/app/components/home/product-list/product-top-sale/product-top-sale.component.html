@@ -1,0 +1,55 @@
+<div class="item_list">
+  <div
+    class="card"
+    *ngFor="let prodTopSale of productsTopSale"
+    style="cursor: pointer"
+  >
+    <div class="card__img">
+      <img
+        [routerLink]="['/shop', prodTopSale.product_id]"
+        [src]="prodTopSale.images"
+        alt=""
+      />
+      <div class="icon_list">
+        <i
+          class="fas fa-heart text-danger"
+          (click)="onAddWishList(prodTopSale)"
+        ></i>
+      </div>
+    </div>
+    <h5 class="card__title mt-3">{{ prodTopSale.title | summary: 30 }}</h5>
+    <p class="card__price mt-4">
+      Price: ₹{{ getPrice(prodTopSale.variant_price) }}
+    </p>
+    <div class="card__action text-center">
+      <button
+        class="btn-success btn"
+        (click)="onAddItem(prodTopSale)"
+        *ngIf="
+          cartService.getItemQuantity(prodTopSale) === 0;
+          else updateQuantity
+        "
+      >
+        Add to cart <i class="fas fa-shopping-cart"></i>
+      </button>
+
+      <ng-template #updateQuantity>
+        <div class="d-flex justify-content-between align-items-center">
+          <button
+            class="btn btn-danger"
+            (click)="cartService.removeItem(prodTopSale)"
+          >
+            <i class="fas fa-minus"></i>
+          </button>
+          <span>{{ cartService.getItemQuantity(prodTopSale) }}</span>
+          <button
+            class="btn btn-primary"
+            (click)="cartService.addItem(prodTopSale)"
+          >
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

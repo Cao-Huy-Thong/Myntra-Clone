@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "myntra-clone-hn22-angular"
+  },
+  "targets": {
+    "minimog-hn22": {
+      "hosting": {
+        "Myntra-Clone": [
+          "minimog-hn22"
+        ]
+      }
+    }
+  }
+}
